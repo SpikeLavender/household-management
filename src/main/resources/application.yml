@@ -1,0 +1,47 @@
+server:
+  port: 8080
+
+# Mysql数据库连接配置: com.mysql.cj.jdbc.Driver
+spring:
+  application:
+    name: household-management
+  datasource:
+    url: jdbc:mysql://49.232.146.162:3307/household?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  flyway:
+    enabled: true
+    baseline-version: 0
+    baseline-on-migrate: true
+    locations: classpath:/db/migration
+
+# mybatis配置
+mybatis:
+  configuration:
+    #开启驼峰命名匹配映射
+    map-underscore-to-camel-case: true
+    # 控制台日志配置
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #配置mybatis的xml映射配置文件路径
+  mapper-locations: classpath:mapper/*.xml
+  #配置mybatis映射配置文件中实体类别名
+  type-aliases-package: com.natsumes.edu.pojo
+
+# pagehelper 配置
+pagehelper:
+  auto-dialect: true
+  reasonable: true
+  support-methods-arguments: true
+  params: countSql
+  rowBoundsWithCount: true
+
+# 健康检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

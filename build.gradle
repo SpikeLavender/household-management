@@ -1,0 +1,129 @@
+apply plugin: 'java'
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+
+group 'com.natsumes'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven {
+        url = 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    jcenter()
+    mavenCentral()
+}
+
+buildscript {
+    ext {
+        //定义一个变量，统一规定springboot的版本
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories {
+        maven {
+            url = 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies { //用来打包
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+
+configurations {
+    mybatisGenerator
+}
+
+//指定编码格式
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+dependencyManagement {
+    imports {
+        //spring bom helps us to declare dependencies without specifying version numbers.
+        mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.projectlombok:lombok'
+    implementation 'com.github.pagehelper:pagehelper-spring-boot-starter:1.2.13'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
+    implementation 'org.apache.httpcomponents:httpclient'
+    annotationProcessor "org.projectlombok:lombok"
+    runtimeOnly 'mysql:mysql-connector-java:5.1.46'
+    compileOnly 'org.flywaydb:flyway-core:5.2.4'
+    mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.7'
+    mybatisGenerator 'mysql:mysql-connector-java:5.1.46'
+    mybatisGenerator 'tk.mybatis:mapper:3.3.1'
+}
+
+
+//我们为 Java 项目指定了版本号以及所用的 JDK 版本，并且添加一些属性到 mainfest 中。
+jar {
+    enabled = true
+    manifest.attributes provider: 'gradle'
+}
+
+
+
+
+
+
+
+
+////3、添加任务
+//def getDbProperties = {
+//    def properties = new Properties()
+//    file("src/main/resources/db/mybatis/db-mysql.properties").withInputStream { inputStream ->
+//        properties.load(inputStream)
+//    }
+//    properties
+//}
+
+//task mybatisGenerate  {
+//    def properties = getDbProperties()
+//    ant.properties['targetProject'] = projectDir.path
+//    ant.properties['driverClass'] = properties.getProperty("jdbc.driverClassName")
+//    ant.properties['connectionURL'] = properties.getProperty("jdbc.url")
+//    ant.properties['userId'] = properties.getProperty("jdbc.user")
+//    ant.properties['password'] = properties.getProperty("jdbc.pass")
+//    ant.properties['src_main_java'] = sourceSets.main.java.srcDirs[0].path
+//    ant.properties['src_main_resources'] = sourceSets.main.resources.srcDirs[0].path
+//    ant.properties['modelPackage'] = properties.getProperty("package.model")
+//    ant.properties['mapperPackage'] = properties.getProperty("package.mapper")
+//    ant.properties['sqlMapperPackage'] =properties.getProperty("package.xml")
+//    ant.taskdef(
+//            name: 'mbgenerator',
+//            classname: 'org.mybatis.generator.ant.GeneratorAntTask',
+//            classpath: configurations.mybatisGenerator.asPath
+//    )
+//    ant.mbgenerator(overwrite: true,
+//            configfile: 'src/main/resources/db/mybatis/generatorConfig.xml', verbose: true) {
+//        propertyset {
+//            propertyref(name: 'targetProject')
+//            propertyref(name: 'userId')
+//            propertyref(name: 'driverClass')
+//            propertyref(name: 'connectionURL')
+//            propertyref(name: 'password')
+//            propertyref(name: 'src_main_java')
+//            propertyref(name: 'src_main_resources')
+//            propertyref(name: 'modelPackage')
+//            propertyref(name: 'mapperPackage')
+//            propertyref(name: 'sqlMapperPackage')
+//        }
+//    }
+//}
+
+
+
