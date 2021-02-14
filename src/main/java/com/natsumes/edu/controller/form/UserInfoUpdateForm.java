@@ -1,6 +1,5 @@
 package com.natsumes.edu.controller.form;
 
-import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -9,7 +8,6 @@ import javax.validation.constraints.NotNull;
  * @author hetengjiao
  */
 @Data
-@Builder
 public class UserInfoUpdateForm {
     private Integer id;
 

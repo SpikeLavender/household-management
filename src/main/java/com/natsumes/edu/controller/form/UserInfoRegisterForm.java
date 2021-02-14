@@ -1,7 +1,7 @@
 package com.natsumes.edu.controller.form;
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
  * @author hetengjiao
  */
 @Data
-@Builder
+@NoArgsConstructor
 public class UserInfoRegisterForm {
     private Integer id;
 

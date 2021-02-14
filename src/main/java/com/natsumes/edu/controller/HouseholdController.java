@@ -5,13 +5,12 @@ import com.natsumes.edu.entity.Response;
 import com.natsumes.edu.pojo.HouseholdInfo;
 import com.natsumes.edu.service.IHouseholdService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * @author hetengjiao
  */
-@Controller
+@RestController
 @RequestMapping("/household")
 public class HouseholdController {
 
@@ -57,8 +56,9 @@ public class HouseholdController {
      * @param pageSize 每页数目
      * @return 全部用户信息
      */
-    @GetMapping("/")
-    public Response<PageInfo> getHouseholdInfo(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+    @GetMapping(value = "/all")
+    public Response<PageInfo> getHouseholdInfo(@RequestParam(required = false, defaultValue = "0") Integer pageNum,
+                                               @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
         return householdServiceImpl.getHouseholdInfo(pageNum, pageSize);
     }
 

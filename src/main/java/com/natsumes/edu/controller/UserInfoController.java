@@ -34,10 +34,12 @@ public class UserInfoController {
      * @return 注册信息
      */
     @PostMapping("/register")
-    public Response<UserInfo> register(@Valid @RequestBody UserInfoRegisterForm registerForm) {
+    public Response<UserInfo> register(@Valid @RequestBody UserInfoRegisterForm registerForm, HttpSession session) {
         UserInfo userInfo = new UserInfo();
         BeanUtils.copyProperties(registerForm, userInfo);
-        return userInfoServiceImpl.register(userInfo);
+        Response<UserInfo> response = userInfoServiceImpl.register(userInfo);
+        session.setAttribute(CURRENT_USER, response.getData());
+        return response;
     }
 
     /**
@@ -102,7 +104,9 @@ public class UserInfoController {
      * @return 用户信息
      */
     @GetMapping("/userInfos")
-    public Response<PageInfo> getUserInfo(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+    public Response<PageInfo> getUserInfo(@RequestParam(required = false, defaultValue = "0") Integer pageNum,
+                                          @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
+
         return userInfoServiceImpl.getUserInfo(pageNum, pageSize);
     }
 
@@ -123,9 +127,10 @@ public class UserInfoController {
      * @return 用户信息
      */
     @GetMapping("/status/{userStatus}")
+    @CrossOrigin(origins = "*")
     public Response<PageInfo> getUserInfoByStatus(@PathVariable Integer userStatus,
-                                                  @RequestParam Integer pageNum,
-                                                  @RequestParam Integer pageSize) {
+                                                  @RequestParam(required = false, defaultValue = "0") Integer pageNum,
+                                                  @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
         return userInfoServiceImpl.getUserInfoByStatus(userStatus, pageNum, pageSize);
     }
 

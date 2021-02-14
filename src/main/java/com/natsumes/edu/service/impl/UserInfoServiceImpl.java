@@ -6,6 +6,7 @@ import com.natsumes.edu.entity.Response;
 import com.natsumes.edu.entity.ResponseEnum;
 import com.natsumes.edu.mapper.HouseholdInfoMapper;
 import com.natsumes.edu.mapper.UserInfoMapper;
+import com.natsumes.edu.pojo.HouseholdInfo;
 import com.natsumes.edu.pojo.UserInfo;
 import com.natsumes.edu.pojo.UserStatusEnum;
 import com.natsumes.edu.service.IUserInfoService;
@@ -37,13 +38,22 @@ public class UserInfoServiceImpl implements IUserInfoService {
      * @return 注册信息
      */
     @Override
+    @Transactional(rollbackFor = {})
     public Response<UserInfo> register(UserInfo userInfo) {
 
         if (userInfoMapper.countByUsername(userInfo.getUsername()) > 0) {
             return Response.error(ResponseEnum.USERNAME_EXIST);
         }
+        String password = DigestUtils.md5DigestAsHex(userInfo.getPassword().getBytes(StandardCharsets.UTF_8));
+        userInfo.setPassword(password);
         if (userInfoMapper.insertSelective(userInfo) == 0) {
             return Response.error(ResponseEnum.SYSTEM_ERROR, "服务内部异常");
+        }
+        HouseholdInfo householdInfo = new HouseholdInfo();
+        householdInfo.setUserId(userInfo.getId());
+        householdInfo.setName(userInfo.getUsername());
+        if (householdInfoMapper.insertOrUpdateSelective(householdInfo) <= 0) {
+            return Response.error(ResponseEnum.SYSTEM_ERROR);
         }
         return Response.success();
     }
@@ -135,6 +145,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
     public Response<PageInfo> getUserInfo(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<UserInfo> userInfos = userInfoMapper.selectAll();
+        userInfos.forEach(userInfo -> userInfo.setPassword(""));
         PageInfo pageInfo = new PageInfo<>(userInfos);
         return Response.success(pageInfo);
     }
@@ -164,6 +175,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
     public Response<PageInfo> getUserInfoByStatus(Integer userStatus, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<UserInfo> userInfos = userInfoMapper.selectByStatus(userStatus);
+        userInfos.forEach(userInfo -> userInfo.setPassword(""));
         PageInfo pageInfo = new PageInfo<>(userInfos);
         return Response.success(pageInfo);
     }

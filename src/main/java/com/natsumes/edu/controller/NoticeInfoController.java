@@ -5,7 +5,6 @@ import com.natsumes.edu.entity.Response;
 import com.natsumes.edu.pojo.NoticeInfo;
 import com.natsumes.edu.service.INoticeInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -15,7 +14,7 @@ import java.util.stream.Collectors;
 /**
  * @author hetengjiao
  */
-@Controller
+@RestController
 @RequestMapping("/notice")
 public class NoticeInfoController {
 
@@ -28,8 +27,9 @@ public class NoticeInfoController {
      * @param pageSize 每页数目
      * @return 公告信息
      */
-    @GetMapping("/")
-    public Response<PageInfo> getNoticeInfo(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+    @GetMapping("/notices")
+    public Response<PageInfo> getNoticeInfo(@RequestParam(required = false, defaultValue = "0") Integer pageNum,
+                                            @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
         return noticeInfoServiceImpl.getNoticeInfo(pageNum, pageSize);
     }
 
@@ -38,7 +38,7 @@ public class NoticeInfoController {
      * @param noticeInfo 公告信息
      * @return 创建结果
      */
-    @PostMapping("/")
+    @PostMapping("/notices")
     public Response<NoticeInfo> createNoticeInfo(@RequestBody NoticeInfo noticeInfo) {
         return noticeInfoServiceImpl.createNoticeInfo(noticeInfo);
     }
@@ -69,7 +69,7 @@ public class NoticeInfoController {
      * @param noticeIds {@link List <Integer> 公告id}
      * @return 删除结果
      */
-    @DeleteMapping("/{noticeIds}")
+    @DeleteMapping("/bantchs/{noticeIds}")
     public Response deleteNoticeInfoBatch(@PathVariable String noticeIds) {
         String[] split = noticeIds.split(",");
         List<String> ids = Arrays.asList(split);
