@@ -32,22 +32,22 @@ public class HouseholdController {
      * @param householdInfo 户籍信息
      * @return 更新后的信息
      */
-    @PutMapping("/{household}")
-    public Response<HouseholdInfo> updateHouseholdInfo(@PathVariable Integer household,
+    @PutMapping("/{householdId}")
+    public Response<HouseholdInfo> updateHouseholdInfo(@PathVariable Integer householdId,
                                                        @RequestBody HouseholdInfo householdInfo) {
-        householdInfo.setId(household);
+        householdInfo.setId(householdId);
         return householdServiceImpl.updateHouseholdInfo(householdInfo);
     }
 
     /**
      * 删除户籍信息
-     * @param household 户籍id
+     * @param householdId 户籍id
      * @param userId 用户id
      * @return 删除结果
      */
-    @DeleteMapping("/{userId}/{household}")
-    public Response deleteHouseholdInfo(@PathVariable Integer household, @PathVariable Integer userId) {
-        return householdServiceImpl.deleteHouseholdInfo(household, userId);
+    @DeleteMapping("/{userId}/{householdId}")
+    public Response deleteHouseholdInfo(@PathVariable Integer householdId, @PathVariable Integer userId) {
+        return householdServiceImpl.deleteHouseholdInfo(householdId, userId);
     }
 
     /**

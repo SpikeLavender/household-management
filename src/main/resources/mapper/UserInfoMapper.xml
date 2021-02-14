@@ -153,9 +153,6 @@
 			<if test="username != null">
 				username = #{username,jdbcType=VARCHAR},
 			</if>
-			<if test="password != null">
-				password = #{password,jdbcType=VARCHAR},
-			</if>
 			<if test="email != null">
 				email = #{email,jdbcType=VARCHAR},
 			</if>
@@ -173,12 +170,6 @@
 			</if>
 			<if test="status != null">
 				status = #{status,jdbcType=INTEGER},
-			</if>
-			<if test="createTime != null">
-				create_time = #{createTime,jdbcType=TIMESTAMP},
-			</if>
-			<if test="updateTime != null">
-				update_time = #{updateTime,jdbcType=TIMESTAMP},
 			</if>
 		</set>
 		where username = #{username,jdbcType=INTEGER}
