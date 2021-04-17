@@ -11,13 +11,15 @@
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="296.0" y="55.0" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="1.0" x="345.0" y="320.5" />
+  <SelectedNodes>
+    <node>com.natsumes.edu.pojo.NoticeInfo</node>
+  </SelectedNodes>
   <Categories>
-    <Category>Properties</Category>
-    <Category>Methods</Category>
-    <Category>Constructors</Category>
     <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>public</VISIBILITY>

@@ -6,8 +6,8 @@
     <node x="507.0" y="703.0">com.natsumes.edu.service.impl.NoticeInfoServiceImpl</node>
     <node x="0.0" y="0.0">com.natsumes.edu.service.IUserInfoService</node>
     <node x="0.0" y="258.0">com.natsumes.edu.service.impl.UserInfoServiceImpl</node>
-    <node x="0.0" y="703.0">com.natsumes.edu.service.impl.HouseholdServiceImpl</node>
     <node x="507.0" y="511.0">com.natsumes.edu.service.INoticeInfoService</node>
+    <node x="0.0" y="703.0">com.natsumes.edu.service.impl.HouseholdServiceImpl</node>
     <node x="0.0" y="511.0">com.natsumes.edu.service.IHouseholdService</node>
   </nodes>
   <notes />
@@ -25,8 +25,10 @@
       <point x="0.0" y="71.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="663.5" y="422.5" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="1.0" x="445.0" y="422.5" />
+  <SelectedNodes>
+    <node>com.natsumes.edu.service.impl.NoticeInfoServiceImpl</node>
+  </SelectedNodes>
   <Categories>
     <Category>Methods</Category>
     <Category>Inner Classes</Category>

@@ -9,8 +9,10 @@
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="317.0" y="90.0" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="1.0" x="358.5" y="296.5" />
+  <SelectedNodes>
+    <node>com.natsumes.edu.mapper.NoticeInfoMapper</node>
+  </SelectedNodes>
   <Categories>
     <Category>Methods</Category>
   </Categories>

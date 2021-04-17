@@ -4,8 +4,8 @@
   <OriginalElement>com.natsumes.edu</OriginalElement>
   <nodes>
     <node x="0.0" y="155.0">com.natsumes.edu.mapper.NoticeInfoMapper</node>
-    <node x="33.5" y="235.0">com.natsumes.edu.service.impl.NoticeInfoServiceImpl</node>
     <node x="515.5" y="155.0">com.natsumes.edu.exception.RuntimeExceptionHandler</node>
+    <node x="33.5" y="235.0">com.natsumes.edu.service.impl.NoticeInfoServiceImpl</node>
     <node x="265.5" y="235.0">com.natsumes.edu.controller.NoticeInfoController</node>
     <node x="446.0" y="0.0">com.natsumes.edu.mapper.HouseholdInfoMapper</node>
     <node x="491.25" y="80.0">com.natsumes.edu.service.impl.HouseholdServiceImpl</node>
@@ -26,37 +26,11 @@
       <point x="724.25" y="60.0" />
       <point x="-45.25" y="15.0" />
     </edge>
-    <edge source="com.natsumes.edu.controller.NoticeInfoController" target="com.natsumes.edu.service.INoticeInfoService">
-      <point x="0.0" y="-15.0" />
-      <point x="47.25" y="15.0" />
-    </edge>
     <edge source="com.natsumes.edu.service.impl.UserInfoServiceImpl" target="com.natsumes.edu.service.IUserInfoService">
       <point x="-65.66666666666669" y="-15.0" />
       <point x="241.83333333333331" y="60.0" />
       <point x="181.0" y="60.0" />
       <point x="43.25" y="15.0" />
-    </edge>
-    <edge source="com.natsumes.edu.service.impl.UserInfoServiceImpl" target="com.natsumes.edu.mapper.HouseholdInfoMapper">
-      <point x="65.66666666666669" y="-15.0" />
-      <point x="373.1666666666667" y="60.0" />
-      <point x="495.25" y="60.0" />
-      <point x="-49.25" y="15.0" />
-    </edge>
-    <edge source="com.natsumes.edu.controller.HouseholdController" target="com.natsumes.edu.service.IHouseholdService">
-      <point x="0.0" y="-15.0" />
-      <point x="45.25" y="15.0" />
-    </edge>
-    <edge source="com.natsumes.edu.service.impl.UserInfoServiceImpl" target="com.natsumes.edu.mapper.UserInfoMapper">
-      <point x="0.0" y="-15.0" />
-      <point x="-39.5" y="15.0" />
-    </edge>
-    <edge source="com.natsumes.edu.service.impl.NoticeInfoServiceImpl" target="com.natsumes.edu.mapper.NoticeInfoMapper">
-      <point x="-53.0" y="-15.0" />
-      <point x="0.0" y="15.0" />
-    </edge>
-    <edge source="com.natsumes.edu.service.impl.HouseholdServiceImpl" target="com.natsumes.edu.mapper.HouseholdInfoMapper">
-      <point x="0.0" y="-15.0" />
-      <point x="49.25" y="15.0" />
     </edge>
     <edge source="com.natsumes.edu.service.impl.NoticeInfoServiceImpl" target="com.natsumes.edu.service.INoticeInfoService">
       <point x="53.0" y="-15.0" />
@@ -64,19 +38,11 @@
       <point x="273.5" y="210.0" />
       <point x="-47.25" y="15.0" />
     </edge>
-    <edge source="com.natsumes.edu.controller.UserInfoController" target="com.natsumes.edu.service.IUserInfoService">
-      <point x="0.0" y="-15.0" />
-      <point x="-43.25" y="15.0" />
-    </edge>
-    <edge source="com.natsumes.edu.service.impl.HouseholdServiceImpl" target="com.natsumes.edu.mapper.UserInfoMapper">
-      <point x="-68.33333333333326" y="-15.0" />
-      <point x="525.4166666666667" y="50.0" />
-      <point x="386.5" y="50.0" />
-      <point x="39.5" y="15.0" />
-    </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="238.5" y="170.0" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="1.0" x="457.0" y="132.5" />
+  <SelectedNodes>
+    <node>com.natsumes.edu.mapper.NoticeInfoMapper</node>
+  </SelectedNodes>
   <Categories />
   <SCOPE>All</SCOPE>
   <VISIBILITY>public</VISIBILITY>

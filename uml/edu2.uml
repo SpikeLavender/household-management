@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.natsumes.edu</OriginalElement>
+  <nodes>
+    <node x="0.0" y="170.0">com.natsumes.edu.service</node>
+    <node x="170.0" y="170.0">com.natsumes.edu.exception</node>
+    <node x="338.6946428571428" y="80.0">com.natsumes.edu.mapper</node>
+    <node x="0.0" y="325.0">com.natsumes.edu.Application</node>
+    <node x="520.1946428571428" y="170.0">com.natsumes.edu.config</node>
+    <node x="176.6946428571428" y="80.0">com.natsumes.edu.entity</node>
+    <node x="503.66249999999997" y="250.0">com.natsumes.edu.controller</node>
+    <node x="500.6946428571428" y="80.0">com.natsumes.edu.interceptor</node>
+    <node x="515.25" y="0.0">com.natsumes.edu.pojo</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="341.0" y="177.5" />
+  <SelectedNodes>
+    <node>com.natsumes.edu.service</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+
