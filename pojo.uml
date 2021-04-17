@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.natsumes.edu.pojo.NoticeInfo</OriginalElement>
+  <nodes>
+    <node x="320.0" y="409.0">com.natsumes.edu.pojo.RoleEnum</node>
+    <node x="0.0" y="409.0">com.natsumes.edu.pojo.UserStatusEnum</node>
+    <node x="0.0" y="0.0">com.natsumes.edu.pojo.UserInfo</node>
+    <node x="245.0" y="0.0">com.natsumes.edu.pojo.HouseholdInfo</node>
+    <node x="490.0" y="0.0">com.natsumes.edu.pojo.NoticeInfo</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="296.0" y="55.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.natsumes.edu.mapper</OriginalElement>
+  <nodes>
+    <node x="369.0" y="319.0">com.natsumes.edu.mapper.NoticeInfoMapper</node>
+    <node x="0.0" y="0.0">com.natsumes.edu.mapper.HouseholdInfoMapper</node>
+    <node x="0.0" y="319.0">com.natsumes.edu.mapper.UserInfoMapper</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="317.0" y="90.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+

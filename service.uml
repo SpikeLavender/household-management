@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.natsumes.edu.service</OriginalElement>
+  <nodes>
+    <node x="507.0" y="703.0">com.natsumes.edu.service.impl.NoticeInfoServiceImpl</node>
+    <node x="0.0" y="0.0">com.natsumes.edu.service.IUserInfoService</node>
+    <node x="0.0" y="258.0">com.natsumes.edu.service.impl.UserInfoServiceImpl</node>
+    <node x="0.0" y="703.0">com.natsumes.edu.service.impl.HouseholdServiceImpl</node>
+    <node x="507.0" y="511.0">com.natsumes.edu.service.INoticeInfoService</node>
+    <node x="0.0" y="511.0">com.natsumes.edu.service.IHouseholdService</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.natsumes.edu.service.impl.HouseholdServiceImpl" target="com.natsumes.edu.service.IHouseholdService">
+      <point x="0.0" y="-71.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="com.natsumes.edu.service.impl.UserInfoServiceImpl" target="com.natsumes.edu.service.IUserInfoService">
+      <point x="0.0" y="-104.0" />
+      <point x="0.0" y="104.0" />
+    </edge>
+    <edge source="com.natsumes.edu.service.impl.NoticeInfoServiceImpl" target="com.natsumes.edu.service.INoticeInfoService">
+      <point x="0.0" y="-71.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="663.5" y="422.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>Project Files</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+
