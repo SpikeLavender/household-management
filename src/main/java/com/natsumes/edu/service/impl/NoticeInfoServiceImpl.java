@@ -31,9 +31,13 @@ public class NoticeInfoServiceImpl implements INoticeInfoService {
      */
     @Override
     public Response<PageInfo> getNoticeInfo(Integer pageNum, Integer pageSize) {
+        // 设置分页信息
         PageHelper.startPage(pageNum, pageSize);
+        // 查询全部通知列表
         List<NoticeInfo> noticeInfos = noticeInfoMapper.selectAll();
+        // 组装分页结果
         PageInfo pageInfo = new PageInfo<>(noticeInfos);
+        // 返回公告信息
         return Response.success(pageInfo);
     }
 
@@ -46,9 +50,12 @@ public class NoticeInfoServiceImpl implements INoticeInfoService {
      */
     @Override
     public Response<NoticeInfo> createNoticeInfo(NoticeInfo noticeInfo) {
+        // 插入公告信息
         if (noticeInfoMapper.insertSelective(noticeInfo) <= 0) {
+            // 插入失败，返回系统异常
             return Response.error(ResponseEnum.SYSTEM_ERROR);
         }
+        // 返回公告信息
         return Response.success(noticeInfo);
     }
 
@@ -61,7 +68,9 @@ public class NoticeInfoServiceImpl implements INoticeInfoService {
      */
     @Override
     public Response<NoticeInfo> updateNoticeInfo(NoticeInfo noticeInfo) {
+        // 更新公告信息
         noticeInfoMapper.updateByPrimaryKeySelective(noticeInfo);
+        // 返回结果
         return Response.success(noticeInfo);
     }
 
@@ -74,7 +83,9 @@ public class NoticeInfoServiceImpl implements INoticeInfoService {
      */
     @Override
     public Response deleteNoticeInfo(Integer noticeId) {
+        // 根据公告id删除公告结果
         noticeInfoMapper.deleteByPrimaryKey(noticeId);
+        // 返回结果
         return Response.success();
     }
 
@@ -87,7 +98,9 @@ public class NoticeInfoServiceImpl implements INoticeInfoService {
      */
     @Override
     public Response deleteNoticeInfoBatch(List<Integer> noticeIds) {
+        // 批量删除公告信息
         noticeInfoMapper.deleteBatch(noticeIds);
+        // 返回结果
         return Response.success();
     }
 }

@@ -117,6 +117,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
     @Override
     public Response verify(Integer id, Integer status) {
         try {
+            // 判断状态是否有效
             UserStatusEnum.getStatus(status);
         } catch (IllegalArgumentException e) {
             return Response.error(ResponseEnum.USER_STATUS_ERROR);
@@ -142,7 +143,9 @@ public class UserInfoServiceImpl implements IUserInfoService {
     @Override
     @Transactional(rollbackFor = {})
     public Response delete(Integer id) {
+        // 根据id删除用户信息
         userInfoMapper.deleteByPrimaryKey(id);
+        // 根据id删除户籍信息
         householdInfoMapper.deleteByUserId(id);
         return Response.success();
     }
@@ -157,10 +160,15 @@ public class UserInfoServiceImpl implements IUserInfoService {
      */
     @Override
     public Response<PageInfo> getUserInfo(Integer pageNum, Integer pageSize) {
+        // 设置分页信息
         PageHelper.startPage(pageNum, pageSize);
+        // 查询用全部户信息
         List<UserInfo> userInfos = userInfoMapper.selectAll();
+        // 遍历设置密码为空，防止泄漏
         userInfos.forEach(userInfo -> userInfo.setPassword(""));
+        // 组装分页信息
         PageInfo pageInfo = new PageInfo<>(userInfos);
+        // 返回用户信息
         return Response.success(pageInfo);
     }
 
@@ -171,8 +179,11 @@ public class UserInfoServiceImpl implements IUserInfoService {
      */
     @Override
     public Response<UserInfo> getUserInfoById(Integer id) {
+        // 根据id查询用户信息
         UserInfo userInfo = userInfoMapper.selectByPrimaryKey(id);
+        // 设置密码为空，防止传到前端暴露
         userInfo.setPassword("");
+        // 返回用户信息
         return Response.success(userInfo);
     }
 
@@ -187,10 +198,15 @@ public class UserInfoServiceImpl implements IUserInfoService {
      */
     @Override
     public Response<PageInfo> getUserInfoByStatus(Integer userStatus, Integer pageNum, Integer pageSize) {
+        // 设置分页信息
         PageHelper.startPage(pageNum, pageSize);
+        // 根据用户状态查询用户信息
         List<UserInfo> userInfos = userInfoMapper.selectByStatus(userStatus);
+        // 遍历设置密码为空，防止密码泄漏
         userInfos.forEach(userInfo -> userInfo.setPassword(""));
+        // 组装分页结果
         PageInfo pageInfo = new PageInfo<>(userInfos);
+        // 返回用户信息列表
         return Response.success(pageInfo);
     }
 }
