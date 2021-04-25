@@ -26,9 +26,7 @@
     </edge>
   </edges>
   <settings layout="Hierarchic Group" zoom="1.0" x="445.0" y="422.5" />
-  <SelectedNodes>
-    <node>com.natsumes.edu.service.impl.NoticeInfoServiceImpl</node>
-  </SelectedNodes>
+  <SelectedNodes />
   <Categories>
     <Category>Methods</Category>
     <Category>Inner Classes</Category>

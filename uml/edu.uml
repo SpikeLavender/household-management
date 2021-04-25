@@ -3,43 +3,37 @@
   <ID>JAVA</ID>
   <OriginalElement>com.natsumes.edu</OriginalElement>
   <nodes>
-    <node x="0.0" y="155.0">com.natsumes.edu.mapper.NoticeInfoMapper</node>
-    <node x="515.5" y="155.0">com.natsumes.edu.exception.RuntimeExceptionHandler</node>
-    <node x="33.5" y="235.0">com.natsumes.edu.service.impl.NoticeInfoServiceImpl</node>
-    <node x="265.5" y="235.0">com.natsumes.edu.controller.NoticeInfoController</node>
-    <node x="446.0" y="0.0">com.natsumes.edu.mapper.HouseholdInfoMapper</node>
-    <node x="491.25" y="80.0">com.natsumes.edu.service.impl.HouseholdServiceImpl</node>
-    <node x="226.25" y="155.0">com.natsumes.edu.service.INoticeInfoService</node>
-    <node x="679.0" y="0.0">com.natsumes.edu.service.IHouseholdService</node>
-    <node x="0.0" y="80.0">com.natsumes.edu.controller.UserInfoController</node>
-    <node x="716.25" y="80.0">com.natsumes.edu.controller.HouseholdController</node>
-    <node x="523.0" y="233.0">com.natsumes.edu.interceptor.UserLoginInterceptor</node>
-    <node x="51.25" y="0.0">com.natsumes.edu.service.IUserInfoService</node>
-    <node x="209.0" y="80.0">com.natsumes.edu.service.impl.UserInfoServiceImpl</node>
-    <node x="268.0" y="0.0">com.natsumes.edu.mapper.UserInfoMapper</node>
+    <node x="0.0" y="374.0">com.natsumes.edu.controller.NoticeInfoController</node>
+    <node x="259.0" y="556.0">com.natsumes.edu.mapper.NoticeInfoMapper</node>
+    <node x="0.0" y="96.0">com.natsumes.edu.service.impl.NoticeInfoServiceImpl</node>
+    <node x="267.0" y="187.0">com.natsumes.edu.exception.RuntimeExceptionHandler</node>
+    <node x="0.0" y="465.0">com.natsumes.edu.mapper.HouseholdInfoMapper</node>
+    <node x="282.0" y="96.0">com.natsumes.edu.service.impl.HouseholdServiceImpl</node>
+    <node x="11.5" y="0.0">com.natsumes.edu.service.INoticeInfoService</node>
+    <node x="294.0" y="0.0">com.natsumes.edu.service.IHouseholdService</node>
+    <node x="0.0" y="556.0">com.natsumes.edu.controller.UserInfoController</node>
+    <node x="267.0" y="465.0">com.natsumes.edu.controller.HouseholdController</node>
+    <node x="275.0" y="374.0">com.natsumes.edu.interceptor.UserLoginInterceptor</node>
+    <node x="12.0" y="187.0">com.natsumes.edu.service.IUserInfoService</node>
+    <node x="0.0" y="283.0">com.natsumes.edu.service.impl.UserInfoServiceImpl</node>
+    <node x="502.0" y="556.0">com.natsumes.edu.mapper.UserInfoMapper</node>
   </nodes>
   <notes />
   <edges>
     <edge source="com.natsumes.edu.service.impl.HouseholdServiceImpl" target="com.natsumes.edu.service.IHouseholdService">
-      <point x="68.33333333333337" y="-15.0" />
-      <point x="662.0833333333334" y="60.0" />
-      <point x="724.25" y="60.0" />
-      <point x="-45.25" y="15.0" />
+      <point x="0.0" y="-23.0" />
+      <point x="0.0" y="23.0" />
     </edge>
     <edge source="com.natsumes.edu.service.impl.UserInfoServiceImpl" target="com.natsumes.edu.service.IUserInfoService">
-      <point x="-65.66666666666669" y="-15.0" />
-      <point x="241.83333333333331" y="60.0" />
-      <point x="181.0" y="60.0" />
-      <point x="43.25" y="15.0" />
+      <point x="0.0" y="-23.0" />
+      <point x="0.0" y="23.0" />
     </edge>
     <edge source="com.natsumes.edu.service.impl.NoticeInfoServiceImpl" target="com.natsumes.edu.service.INoticeInfoService">
-      <point x="53.0" y="-15.0" />
-      <point x="192.5" y="210.0" />
-      <point x="273.5" y="210.0" />
-      <point x="-47.25" y="15.0" />
+      <point x="0.0" y="-23.0" />
+      <point x="0.0" y="23.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="457.0" y="132.5" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="342.5" y="301.0" />
   <SelectedNodes>
     <node>com.natsumes.edu.mapper.NoticeInfoMapper</node>
   </SelectedNodes>

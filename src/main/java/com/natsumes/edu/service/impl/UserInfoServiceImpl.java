@@ -40,21 +40,29 @@ public class UserInfoServiceImpl implements IUserInfoService {
     @Override
     @Transactional(rollbackFor = {})
     public Response<UserInfo> register(UserInfo userInfo) {
-
+        // 用户名是否存在
         if (userInfoMapper.countByUsername(userInfo.getUsername()) > 0) {
+            // 返回用户名已注册
             return Response.error(ResponseEnum.USERNAME_EXIST);
         }
+        // 用户密码进行加密
         String password = DigestUtils.md5DigestAsHex(userInfo.getPassword().getBytes(StandardCharsets.UTF_8));
         userInfo.setPassword(password);
+        // 将用户信息数据插入数据库
         if (userInfoMapper.insertSelective(userInfo) == 0) {
+            //插入异常，返回错误
             return Response.error(ResponseEnum.SYSTEM_ERROR, "服务内部异常");
         }
+        // 插入户籍信息
         HouseholdInfo householdInfo = new HouseholdInfo();
         householdInfo.setUserId(userInfo.getId());
         householdInfo.setName(userInfo.getUsername());
+        // 插入一条用户名对应的户籍信息
         if (householdInfoMapper.insertOrUpdateSelective(householdInfo) <= 0) {
+            // 插入失败，返回异常
             return Response.error(ResponseEnum.SYSTEM_ERROR);
         }
+        // 返回成功
         return Response.success();
     }
 
@@ -78,8 +86,9 @@ public class UserInfoServiceImpl implements IUserInfoService {
             return Response.error(ResponseEnum.USERNAME_OR_PASSWORD_ERROR);
         }
 
+        // 把返回前端的密码设置为空，防止暴露
         userInfo.setPassword("");
-
+        // 返回用户信息
         return Response.success(userInfo);
     }
 
@@ -92,6 +101,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
      */
     @Override
     public Response<UserInfo> update(UserInfo userInfo) {
+        // 更新用户信息
         userInfoMapper.updateByUsername(userInfo);
         return Response.success(userInfo);
     }
@@ -111,9 +121,13 @@ public class UserInfoServiceImpl implements IUserInfoService {
         } catch (IllegalArgumentException e) {
             return Response.error(ResponseEnum.USER_STATUS_ERROR);
         }
+        // 新建一个UserInfo
         UserInfo userInfo = new UserInfo();
+        // 设置 id
         userInfo.setId(id);
+        // 设置 status
         userInfo.setStatus(status);
+        // 更新审核状态
         userInfoMapper.updateByPrimaryKeySelective(userInfo);
         return Response.success();
     }

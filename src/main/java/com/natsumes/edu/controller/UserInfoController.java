@@ -37,7 +37,9 @@ public class UserInfoController {
     public Response<UserInfo> register(@Valid @RequestBody UserInfoRegisterForm registerForm, HttpSession session) {
         UserInfo userInfo = new UserInfo();
         BeanUtils.copyProperties(registerForm, userInfo);
+        // 调用注册业务接口
         Response<UserInfo> response = userInfoServiceImpl.register(userInfo);
+        // 将用户信息存入session
         session.setAttribute(CURRENT_USER, response.getData());
         return response;
     }
@@ -84,6 +86,7 @@ public class UserInfoController {
      */
     @RequestMapping("/{userId}/verify/{status}")
     public Response verify(@PathVariable Integer userId, @PathVariable Integer status) {
+        // 调用用户信息审核业务接口
         return userInfoServiceImpl.verify(userId, status);
     }
 
